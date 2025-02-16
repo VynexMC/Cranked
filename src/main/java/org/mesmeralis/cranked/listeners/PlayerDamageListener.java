@@ -39,8 +39,6 @@ public class PlayerDamageListener implements Listener {
                 || damager.getInventory().getItemInMainHand().getType() == Material.IRON_SWORD
                 || damager.getInventory().getItemInMainHand().getType() == Material.DIAMOND_SWORD
                 || damager.getInventory().getItemInMainHand().getType() == Material.NETHERITE_SWORD) {
-
-
                 }
             }
         }

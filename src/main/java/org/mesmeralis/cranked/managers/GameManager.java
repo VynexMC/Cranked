@@ -47,7 +47,8 @@ public class GameManager {
                 online.sendTitle(ColourUtils.colour("&b&lCRANKED"), "Custom coded.", 20, 60, 20);
                 online.playSound(online, Sound.ENTITY_ENDER_DRAGON_GROWL, 10, 1);
                 main.data.createPlayer(online.getPlayer());
-                online.setWalkSpeed(0.6F);
+                online.setWalkSpeed(0.3F);
+                activeKills.putIfAbsent(online, 0);
             }
             giveItems();
             isGameRunning = true;
@@ -70,7 +71,7 @@ public class GameManager {
                         main.data.addDeaths(online.getUniqueId(), 1);
                     }
                     online.setHealth(20);
-                    online.setWalkSpeed(0.6F);
+                    online.setWalkSpeed(0.3F);
                 }
             }
         }, 100L, 600L);

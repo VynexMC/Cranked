@@ -6,6 +6,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.mesmeralis.cranked.commands.AdminCommand;
 import org.mesmeralis.cranked.listeners.PlayerDamageListener;
+import org.mesmeralis.cranked.listeners.PlayerKillListener;
 import org.mesmeralis.cranked.listeners.PlayerListener;
 import org.mesmeralis.cranked.managers.GameManager;
 import org.mesmeralis.cranked.managers.RankManager;
@@ -70,5 +71,6 @@ public final class Main extends JavaPlugin {
         final PluginManager pluginManager = this.getServer().getPluginManager();
         pluginManager.registerEvents(new PlayerListener(), this);
         pluginManager.registerEvents(new PlayerDamageListener(this), this);
+        pluginManager.registerEvents(new PlayerKillListener(this), this);
     }
 }

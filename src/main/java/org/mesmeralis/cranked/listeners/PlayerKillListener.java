@@ -1,6 +1,7 @@
 package org.mesmeralis.cranked.listeners;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -37,13 +38,15 @@ public class PlayerKillListener implements Listener {
             Bukkit.getServer().broadcastMessage(ColourUtils.colour(main.prefix + "&c" + killed.getName() + "&e was killed by &a" + killer.getName() + "&e."));
             data.addKills(killer.getUniqueId(), 1);
             manager.activeKills.put(killer.getPlayer(), manager.activeKills.get(killer.getPlayer()) + 1);
-            this.manager.gameKills.put(killer.getPlayer(), this.manager.gameKills.get(killer) + 1);
+            this.manager.gameKills.put(killer.getPlayer(), this.manager.gameKills.getOrDefault(killer, 0) + 1);
             data.addPoints(killer.getUniqueId(), 5);
             Bukkit.getServer().broadcastMessage(ColourUtils.colour(main.prefix + "&c" + killed.getName() + " &eblew up!"));
             if (this.main.map.get(killed.getUniqueId()).points > 3) {
                 data.addPoints(killed.getUniqueId(), -3);
             }
             manager.activeKills.put(killed.getPlayer(), 0);
+            killed.playSound(Objects.requireNonNull(killed.getPlayer()).getLocation(), Sound.ENTITY_PLAYER_DEATH, 10, 1);
+            killed.sendTitle(ColourUtils.colour("&c&lYOU DIED!"), "", 0, 20, 10);
             int locNumber = randomLoc.nextInt(10) + 1;
             killed.teleport(Objects.requireNonNull(main.getConfig().getLocation("gamespawn." + locNumber)));
         }
