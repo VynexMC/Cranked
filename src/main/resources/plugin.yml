@@ -1,0 +1,9 @@
+name: Cranked
+version: '1.0-SNAPSHOT'
+main: org.mesmeralis.cranked.Main
+api-version: '1.21'
+commands:
+  admin:
+    usage: /admin <args> [args]
+    description: Cranked admin command.
+    permission: cranked.admin

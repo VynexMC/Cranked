@@ -1,0 +1,29 @@
+host: ''
+port: 3306
+database: ''
+username: ''
+password: ''
+prefix: '&b&lCRANKED &8»'
+spawnworld: 'world'
+ranks:
+  Novice:
+    prefix: ""
+    points: 0
+  Killer:
+    prefix: ""
+    points: 100
+  Slayer:
+    prefix: ""
+    points: 500
+  Warrior:
+    prefix: ""
+    points: 1000
+  Hitman:
+    prefix: ""
+    points: 2500
+  Unstoppable:
+    prefix: ""
+    points: 5000
+  Insane:
+    prefix: ""
+    points: 10000
