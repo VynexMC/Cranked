@@ -64,6 +64,13 @@ public class PapiExpansion extends PlaceholderExpansion {
         if (params.equalsIgnoreCase("topwins")) {
             return ColourUtils.colour(Bukkit.getOfflinePlayer(main.topWins).getName());
         }
+        if (params.equalsIgnoreCase("gamestate")) {
+            if (main.gameManager.isGameRunning) {
+                return ColourUtils.colour("&aIn game.");
+            } else {
+                return ColourUtils.colour("&7Waiting.");
+            }
+        }
 
         return null;
     }
